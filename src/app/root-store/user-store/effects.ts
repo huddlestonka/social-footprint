@@ -12,7 +12,7 @@ export class MyFeatureStoreEffects {
 
   @Effect()
   loginRequestEffect$: Observable<Action> = this.actions$.pipe(
-    ofType<featureActions.LoginRequestAction>(
+    ofType<featureActions.LoadRequestAction>(
       featureActions.ActionTypes.LOAD_REQUEST
     ),
     switchMap(action =>
@@ -21,12 +21,12 @@ export class MyFeatureStoreEffects {
 	.pipe(
 	  map(
 	    user =>
-	      new featureActions.LoginSuccessAction({
+	      new featureActions.LoadSuccessAction({
 		user
 	      })
 	  ),
 	  catchError(error =>
-	    observableOf(new featureActions.LoginFailureAction({ error }))
+	    observableOf(new featureActions.LoadFailureAction({ error }))
 	  )
 	)
     )
