@@ -2,23 +2,24 @@ import { Action } from '@ngrx/store';
 import { User } from '../../models/user';
 
 export enum ActionTypes {
-  LOAD_REQUEST = '[My Feature] Load Request',
-  LOAD_FAILURE = '[My Feature] Load Failure',
-  LOAD_SUCCESS = '[My Feature] Load Success'
+  LOGIN_REQUEST = '[My Feature] Login Request',
+  LOGIN_FAILURE = '[My Feature] Login Failure',
+  LOGIN_SUCCESS = '[My Feature] Login Success'
 }
 
-export class LoadRequestAction implements Action {
-  readonly type = ActionTypes.LOAD_REQUEST;
+export class LoginRequestAction implements Action {
+  readonly type = ActionTypes.LOGIN_REQUEST;
+  constructor(public payload: { userName: string; password: string }) {}
 }
 
-export class LoadFailureAction implements Action {
-  readonly type = ActionTypes.LOAD_FAILURE;
+export class LoginFailureAction implements Action {
+  readonly type = ActionTypes.LOGIN_FAILURE;
   constructor(public payload: { error: string }) {}
 }
 
-export class LoadSuccessAction implements Action {
-  readonly type = ActionTypes.LOAD_SUCCESS;
-  constructor(public payload: { items: User[] }) {}
+export class LoginSuccessAction implements Action {
+  readonly type = ActionTypes.LOGIN_SUCCESS;
+  constructor(public payload: { user: User }) {}
 }
 
-export type Actions = LoadRequestAction | LoadFailureAction | LoadSuccessAction;
+export type Actions = LoginRequestAction | LoginFailureAction | LoginSuccessAction;
