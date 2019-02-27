@@ -12,24 +12,21 @@ import {
   
   const getIsLoading = (state: State): boolean => state.isLoading;
   
-  const getUser = (state: State): any => state.user;
-  
-  export const selectMyFeatureState: MemoizedSelector<
+  export const selectUserState: MemoizedSelector<
     object,
     State
-  > = createFeatureSelector<State>('myFeature');
+  > = createFeatureSelector<State>('user');
+
+  // export const selectAllUserItems: (
+  //   state: object
+  // ) => User[] = featureAdapter.getSelectors(selectUserState).selectAll;
   
-  export const selectMyFeatureError: MemoizedSelector<object, any> = createSelector(
-    selectMyFeatureState,
+  export const selectUserError: MemoizedSelector<object, any> = createSelector(
+    selectUserState,
     getError
   );
   
-  export const selectMyFeatureIsLoading: MemoizedSelector<
+  export const selectUserIsLoading: MemoizedSelector<
     object,
     boolean
-  > = createSelector(selectMyFeatureState, getIsLoading);
-  
-  export const selectMyFeatureUser: MemoizedSelector<
-    object,
-    User
-  > = createSelector(selectMyFeatureState, getUser);
+  > = createSelector(selectUserState, getIsLoading);

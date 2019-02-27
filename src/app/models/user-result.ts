@@ -18,7 +18,7 @@ export interface UserResult {
     updated: string;
 }
 
-declare module namespace {
+
 
     export interface Name {
         given: string;
@@ -66,5 +66,3 @@ declare module namespace {
         description: string;
         docLink: string;
     }
-}
-

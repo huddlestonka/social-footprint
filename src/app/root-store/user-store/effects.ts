@@ -13,7 +13,7 @@ export class MyFeatureStoreEffects {
   @Effect()
   loginRequestEffect$: Observable<Action> = this.actions$.pipe(
     ofType<featureActions.LoginRequestAction>(
-      featureActions.ActionTypes.LOGIN_REQUEST
+      featureActions.ActionTypes.LOAD_REQUEST
     ),
     switchMap(action =>
       this.dataService
