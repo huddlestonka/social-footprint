@@ -10,14 +10,14 @@ import { UserStoreActions, UserStoreSelectors, RootStoreState } from '../../root
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  jokes$: Observable<User[]>;
+  users$: Observable<User[]>;
   error$: Observable<any>;
   isLoading$: Observable<boolean>;
 
   constructor(private store$: Store<RootStoreState.State>) { }
 
   ngOnInit() {
-    this.jokes$ = this.store$.pipe(
+    this.users$ = this.store$.pipe(
       select(UserStoreSelectors.selectAllUserItems) // using standard feature modules, not entity
     );
 
