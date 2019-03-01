@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { User } from '../../models/user';
+import { User } from '../../models';
 
 export enum ActionTypes {
   LOAD_REQUEST = '[User] Load Request',
@@ -18,7 +18,7 @@ export class LoadFailureAction implements Action {
 
 export class LoadSuccessAction implements Action {
   readonly type = ActionTypes.LOAD_SUCCESS;
-  constructor(public payload: { item: User }) {}
+  constructor(public payload: { user: User }) {}
 }
 
 export type Actions = LoadRequestAction | LoadFailureAction | LoadSuccessAction;

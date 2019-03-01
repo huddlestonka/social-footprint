@@ -12,7 +12,7 @@ export const selectIsLoading: MemoizedSelector<
   object,
   boolean
 > = createSelector(
-    UserStoreSelectors.selectUserIsLoading,
+  UserStoreSelectors.selectUserIsLoading,
   (user: boolean) => {
     return user;
   }
