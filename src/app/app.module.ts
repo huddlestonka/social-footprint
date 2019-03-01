@@ -8,7 +8,7 @@ import { RootStoreModule } from "./root-store";
 import { UsersComponent } from './containers/users/users.component';
 import { UserCardItemComponent } from './components/user-card-item/user-card-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule } from '@angular/material';
+import { MatCardModule, MatButtonModule, MatProgressBarModule, MatIconModule, MatIcon } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
@@ -23,7 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
     RootStoreModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatCardModule
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

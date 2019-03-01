@@ -10,7 +10,7 @@ export class DataService {
   private API_BASE_URL = 'https://api.fullcontact.com/v3/person.enrich';
   private username = "kalebhuddleston";
   constructor(private http: HttpClient) { }
-  getUserSocialData(): Observable<User> {
+  getUserSocialData(): Observable<UserResult> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'

@@ -3,6 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { User } from "../../models/user";
 import { UserStoreActions, UserStoreSelectors, RootStoreState } from '../../root-store';
+import { UserResult } from 'src/app/models';
 
 @Component({
   selector: 'app-users',
@@ -10,13 +11,14 @@ import { UserStoreActions, UserStoreSelectors, RootStoreState } from '../../root
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  userData$: Observable<User>;
+  userData$: Observable<UserResult>;
   error$: Observable<any>;
   isLoading$: Observable<boolean>;
 
   constructor(private store$: Store<RootStoreState.State>) { }
 
   ngOnInit() {
+    // the source of all my woes...
     // this.userData$ = this.store$.pipe(
     //   select(UserStoreSelectors.selectAllUserItems)
     // );
@@ -30,7 +32,7 @@ export class UsersComponent implements OnInit {
     );
   }
 
-  onSocialSearch() {
+  socialSearch() {
     this.store$.dispatch(
       new UserStoreActions.LoadRequestAction()
     );
