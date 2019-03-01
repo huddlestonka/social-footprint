@@ -4,13 +4,7 @@
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
 <div *ngIf="!loading">
-  <div class="refresh-button">
-    <button mat-fab (click)="this.refresh.emit()">
-      <mat-icon>refresh</mat-icon>
-    </button>
-  </div>
-
-  <div *ngIf="user"> [user]="user" </div>
+  <div *ngIf="user">{{ user | json }}</div>
 
   <div *ngIf="!user">No social footprint found</div>
 </div>

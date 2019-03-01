@@ -1,5 +1,10 @@
 <div>
-    <app-user-card-item [user]="userData$ | async" [loading]="isLoading$ | async" [error]="(error$ | async)"></app-user-card-item>
-    <button mat-raised-button color="primary" (onclick)="socialSearch()">Find Your Social Footprint</button>
+  <app-user-card-item
+    [user]="userData$ | async"
+    [loading]="isLoading$ | async"
+    [error]="error$ | async"
+  ></app-user-card-item>
+  <button mat-raised-button color="primary" (click)="socialSearch()">
+    Find Your Social Footprint
+  </button>
 </div>
-
