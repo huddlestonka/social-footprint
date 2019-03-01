@@ -10,16 +10,16 @@ import { UserStoreActions, UserStoreSelectors, RootStoreState } from '../../root
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  users$: Observable<User[]>;
+  userData$: Observable<User>;
   error$: Observable<any>;
   isLoading$: Observable<boolean>;
 
   constructor(private store$: Store<RootStoreState.State>) { }
 
   ngOnInit() {
-    this.users$ = this.store$.pipe(
-      select(UserStoreSelectors.selectAllUserItems) // using standard feature modules, not entity
-    );
+    // this.userData$ = this.store$.pipe(
+    //   select(UserStoreSelectors.selectAllUserItems)
+    // );
 
     this.error$ = this.store$.pipe(
       select(UserStoreSelectors.selectUserError)
@@ -30,7 +30,7 @@ export class UsersComponent implements OnInit {
     );
   }
 
-  onRefresh() {
+  onSocialSearch() {
     this.store$.dispatch(
       new UserStoreActions.LoadRequestAction()
     );

@@ -3,21 +3,22 @@ import { initialState, State } from './state';
 
 export function featureReducer(state = initialState, action: Actions): State {
    switch (action.type) {
-      case ActionTypes.LOGIN_REQUEST:
+      case ActionTypes.LOAD_REQUEST:
         return {
           ...state,
           error: null,
           isLoading: true
         };
-      case ActionTypes.LOGIN_SUCCESS:
+      case ActionTypes.LOAD_SUCCESS:
         return {
           ...state,
-          user: action.payload.user,
+          // load the user payload
+          user: action.payload.item,
           error: null,
           isLoading: false,
 
         };
-      case ActionTypes.LOGIN_FAILURE:
+      case ActionTypes.LOAD_FAILURE:
         return {
           ...state,
           error: action.payload.error,

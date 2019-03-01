@@ -7,22 +7,22 @@ import { DataService } from '../../services/data.service';
 import * as featureActions from './actions';
 
 @Injectable()
-export class MyFeatureStoreEffects {
+export class UserStoreEffects {
   constructor(private dataService: DataService, private actions$: Actions) {}
 
   @Effect()
-  loginRequestEffect$: Observable<Action> = this.actions$.pipe(
+  loadRequestEffect$: Observable<Action> = this.actions$.pipe(
     ofType<featureActions.LoadRequestAction>(
       featureActions.ActionTypes.LOAD_REQUEST
     ),
     switchMap(action =>
       this.dataService
-	.login(action.payload.userName, action.payload.password)
+	.getUserSocialData()
 	.pipe(
 	  map(
-	    user =>
+	    item =>
 	      new featureActions.LoadSuccessAction({
-		user
+		item
 	      })
 	  ),
 	  catchError(error =>

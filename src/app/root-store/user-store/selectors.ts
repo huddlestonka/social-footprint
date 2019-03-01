@@ -17,9 +17,7 @@ import {
     State
   > = createFeatureSelector<State>('user');
 
-  // export const selectAllUserItems: (
-  //   state: object
-  // ) => User[] = featureAdapter.getSelectors(selectUserState).selectAll;
+  export const selectAllUserItems = (user: User) => user;
   
   export const selectUserError: MemoizedSelector<object, any> = createSelector(
     selectUserState,

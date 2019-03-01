@@ -9,6 +9,8 @@ import { User } from "../../models/user";
 export class UserCardItemComponent implements OnInit {
   @Input() user: User;
   @Output() select = new EventEmitter<number>();
+  @Input() loading: boolean;
+  @Input() error: any;
 
   constructor() { }
 

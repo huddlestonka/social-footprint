@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { RootStoreModule } from "./root-store";
 import { UsersComponent } from './containers/users/users.component';
 import { UserCardItemComponent } from './components/user-card-item/user-card-item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { UserCardItemComponent } from './components/user-card-item/user-card-ite
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RootStoreModule
+    RootStoreModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
