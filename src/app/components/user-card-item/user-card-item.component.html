@@ -1,4 +1,18 @@
-<mat-card>
-    <mat-card-title><a [routerLink]="['/']">Your Social Footprint {{ user.fullName }}</a></mat-card-title>
-</mat-card>
-  
+<h1>Find Your Social Footprint</h1>
+
+<div *ngIf="loading">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<div *ngIf="!loading">
+  <div class="refresh-button">
+    <button mat-fab (click)="this.refresh.emit()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+
+  <div *ngIf="user"> [user]="user" </div>
+
+  <div *ngIf="!user">No social footprint found</div>
+</div>
+
+<div *ngIf="error">An error occurred: {{ error.message }}</div>

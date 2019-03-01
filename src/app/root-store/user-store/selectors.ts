@@ -7,6 +7,7 @@ import {
   import { User } from '../../models/user';
   
   import { State } from './state';
+import { UserResult } from 'src/app/models';
   
   const getError = (state: State): any => state.error;
   
@@ -17,7 +18,7 @@ import {
     State
   > = createFeatureSelector<State>('user');
 
-  export const selectAllUserItems = (user: User) => user;
+  export const selectAllUserItems = (user: UserResult) => user;
   
   export const selectUserError: MemoizedSelector<object, any> = createSelector(
     selectUserState,
