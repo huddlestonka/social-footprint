@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { User, UserResult } from '../models';
 
@@ -12,20 +12,20 @@ export class DataService {
   private API_BASE_URL = environment.apiBaseUrl;
   private AUTH_TOKEN = environment.authToken;
 
-  private username = 'kalebhuddleston';
-
   constructor(private http: HttpClient) {}
   getUserSocialData(): Observable<User> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${this.AUTH_TOKEN}`
+        Authorization: `Bearer ${this.AUTH_TOKEN}` 
       })
     };
-    const body = { twitter: this.username };
+    const body = { twitter: 'kalebhuddleston' };
     return this.http
       .post<UserResult>(`${this.API_BASE_URL}`, body, httpOptions)
-      .pipe(map(userResult => this.getUserFromUserResult(userResult)));
+      .pipe(map(userResult => {
+        return this.getUserFromUserResult(userResult);
+      }));
   }
 
   private getUserFromUserResult(userResult: UserResult): User {

@@ -4,7 +4,24 @@
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
 <div *ngIf="!loading">
-  <div *ngIf="user">{{ user | json }}</div>
+  <div class="user-container" *ngIf="user">
+      <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ user.fullName | json }}</mat-card-title>
+            <mat-card-subtitle>{{ user.location | json }}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="{{ user.avatar | json }}" alt="Your Face">
+          <mat-card-content>
+            <p>
+              {{ user.bio | json }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Clear Footprint</button>
+          </mat-card-actions>
+        </mat-card>
+  </div>
 
   <div *ngIf="!user">No social footprint found</div>
 </div>
