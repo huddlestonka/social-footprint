@@ -6,7 +6,7 @@ Social Footprint allows users to search and discover their online presence. It i
 
 #### Note - The primary goal of this repo is for teaching myself NgRx. At it's current stage of development, I have a working template for a 'Social Search Site' backed by an NgRx Store that can be forked and repurposed by anyone interested. 
 
-Subsequently, if you choose to clone/fork this repo and utilize the FullContact API, you will need to obtain an [API key here.](https://docs.fullcontact.com/#authorization)
+Subsequently, if you choose to clone/fork this repo and utilize the FullContact API, you will need to obtain an [API key here.](https://www.fullcontact.com/developer/enrich-api/)
 
 In environment.ts, provide your own API Key as the authToken -
 

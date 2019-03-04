@@ -16,7 +16,6 @@ export class DataService {
   getUserSocialData(): Observable<User> {
     const httpOptions = {
       headers: new HttpHeaders({
-        'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
         Authorization: `Bearer ${this.AUTH_TOKEN}` 
       })
