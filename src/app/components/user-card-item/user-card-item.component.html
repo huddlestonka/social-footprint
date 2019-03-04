@@ -4,14 +4,14 @@
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
 <div *ngIf="!loading">
-  <div *ngIf="user">
+  <div class="social-container" *ngIf="user">
       <mat-card class="example-card">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>{{ user.fullName | json }}</mat-card-title>
             <mat-card-subtitle>{{ user.location | json }}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image src="{{ user.avatar | json }}" alt="Your Face">
+          <img mat-card-image src="https://img.fullcontact.com/static/67f018e3dca815c2022d289503b8262c_2b6d07f95f4e6541e996e03f6aab4cdf5cddee8c313cf6d5319766424d1e29df" alt="Your Face Here">
           <mat-card-content>
             <p>
               {{ user.bio | json }}
